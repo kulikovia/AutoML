@@ -1,0 +1,81 @@
+Auto-WEKA result:
+best classifier: weka.classifiers.meta.RandomCommittee
+arguments: [-I, 18, -S, 1, -W, weka.classifiers.trees.RandomTree, --, -M, 1, -K, 0, -depth, 13, -N, 0]
+attribute search: null
+attribute search arguments: []
+attribute evaluation: null
+attribute evaluation arguments: []
+metric: errorRate
+estimated errorRate: 0.0
+training time on evaluation dataset: 0.071 seconds
+
+You can use the chosen classifier in your own code as follows:
+
+Classifier classifier = AbstractClassifier.forName("weka.classifiers.meta.RandomCommittee", new String[]{"-I", "18", "-S", "1", "-W", "weka.classifiers.trees.RandomTree", "--", "-M", "1", "-K", "0", "-depth", "13", "-N", "0"});
+classifier.buildClassifier(instances);
+
+
+Correctly Classified Instances        4248               84.994  %
+Incorrectly Classified Instances       750               15.006  %
+Kappa statistic                          0.8234
+Mean absolute error                      0.0414
+Root mean squared error                  0.1438
+Relative absolute error                 19.2335 %
+Root relative squared error             43.8566 %
+Total Number of Instances             4998     
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   f   g   h   <-- classified as
+ 600   0   0   0   0   0   0   0 |   a = normal
+   0 632   0   0   0   0   0   0 |   b = icmp-echo
+   0   0 940  20   0   0   0   0 |   c = tcp-syn
+   0   0   0 773   0   0   0   0 |   d = udp-flood
+   0   0  23   0 550   0   0   0 |   e = httpFlood
+   0   0 159   0   0 621   0   0 |   f = slowloris
+   0   0 240 240   0   0   0   0 |   g = slowpost
+   0   0  68   0   0   0   0 132 |   h = bruteForce
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 1,000    0,000    1,000      1,000    1,000      1,000    1,000     1,000     normal
+                 1,000    0,000    1,000      1,000    1,000      1,000    1,000     1,000     icmp-echo
+                 0,979    0,121    0,657      0,979    0,787      0,748    0,967     0,842     tcp-syn
+                 1,000    0,062    0,748      1,000    0,856      0,838    0,989     0,911     udp-flood
+                 0,960    0,000    1,000      0,960    0,980      0,977    0,998     0,982     httpFlood
+                 0,796    0,000    1,000      0,796    0,887      0,876    0,992     0,939     slowloris
+                 0,000    0,000    ?          0,000    ?          ?        0,947     0,500     slowpost
+                 0,660    0,000    1,000      0,660    0,795      0,807    0,985     0,769     bruteForce
+Weighted Avg.    0,850    0,033    ?          0,850    ?          ?        0,985     0,887     
+
+
+------- 3 BEST CONFIGURATIONS -------
+
+These are the 3 best configurations, as ranked by SMAC
+Please note that this list only contains configurations evaluated on at least 10 folds,
+If you need more configurations, please consider running Auto-WEKA for a longer time.
+
+Configuration #1:
+SMAC Score: 0.0
+Argument String:
+-_0__wekaclassifiersmetarandomcommittee_00_INT_I 18 -_0__wekaclassifiersmetarandomcommittee_01_S 1 -_1_W weka.classifiers.trees.RandomTree -_1_W_0_DASHDASH REMOVED -_1_W_1__wekaclassifierstreesrandomtree_00_INT_M 1 -_1_W_1__wekaclassifierstreesrandomtree_01_features_HIDDEN 0 -_1_W_1__wekaclassifierstreesrandomtree_02_1_INT_K 0 -_1_W_1__wekaclassifierstreesrandomtree_04_depth_HIDDEN 1 -_1_W_1__wekaclassifierstreesrandomtree_06_2_INT_depth 13 -_1_W_1__wekaclassifierstreesrandomtree_07_back_HIDDEN 0 -_1_W_1__wekaclassifierstreesrandomtree_08_1_INT_N 0 -_1_W_1__wekaclassifierstreesrandomtree_10_U REMOVE_PREV -attributesearch NONE -attributetime 15.0 -targetclass weka.classifiers.meta.RandomCommittee 
+
+Configuration #2:
+SMAC Score: 0.0
+Argument String:
+-_0__wekaclassifierstreesrandomforest_00_INT_I 130 -_0__wekaclassifierstreesrandomforest_01_features_HIDDEN 0 -_0__wekaclassifierstreesrandomforest_02_1_INT_K 0 -_0__wekaclassifierstreesrandomforest_04_depth_HIDDEN 1 -_0__wekaclassifierstreesrandomforest_06_2_INT_depth 15 -attributesearch NONE -attributetime 15.0 -targetclass weka.classifiers.trees.RandomForest 
+
+Configuration #3:
+SMAC Score: 0.0
+Argument String:
+-_0__wekaclassifiersmetarandomcommittee_00_INT_I 5 -_0__wekaclassifiersmetarandomcommittee_01_S 1 -_1_W weka.classifiers.trees.RandomForest -_1_W_0_DASHDASH REMOVED -_1_W_1__wekaclassifierstreesrandomforest_00_INT_I 41 -_1_W_1__wekaclassifierstreesrandomforest_01_features_HIDDEN 1 -_1_W_1__wekaclassifierstreesrandomforest_03_2_INT_K 6 -_1_W_1__wekaclassifierstreesrandomforest_04_depth_HIDDEN 0 -_1_W_1__wekaclassifierstreesrandomforest_05_1_INT_depth 0 -attributesearch NONE -attributetime 15.0 -targetclass weka.classifiers.meta.RandomCommittee 
+
+----END OF CONFIGURATION RANKING----
+
+Temporary run directories:
+C:\Users\igork\AppData\Local\Temp\autoweka9118803706562937912\
+
+
+For better performance, try giving Auto-WEKA more time.
+Tried 126 configurations; to get good results reliably you may need to allow for trying thousands of configurations.
